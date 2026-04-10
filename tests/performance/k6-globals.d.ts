@@ -13,6 +13,8 @@ declare const __ENV: Record<string, string | undefined>;
 declare module 'k6/http' {
   const http: {
     get: (url: string, params?: { tags?: Record<string, string> }) => K6Response;
+    expectedStatuses: (...statuses: number[]) => unknown;
+    setResponseCallback: (callback: unknown) => void;
   };
 
   export default http;
